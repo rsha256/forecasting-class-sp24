@@ -7,5 +7,7 @@ description: Listing of course modules and topics.
 # Calendar
 
 {% for module in site.modules %}
-{{ module }}
+  {% if module.path contains 'sp23' %}
+    {{ module }}
+  {% endif %}
 {% endfor %}

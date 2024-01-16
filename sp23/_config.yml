@@ -13,13 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Stat 165/265 
-tagline: Stat 165/265 - Forecasting
-description: 
-author: Rahul Shah
-# baseurl: ~ # the subpath of your site, e.g. /blog
+title: Stat 157/260 
+tagline: Stat 157/260 - Forecasting
+description:
+author: Jean-Stanislas Denain
+baseurl: '/sp23' # the subpath of your site, e.g. /blog
 url: 'http://forecastingclass.com' # the base hostname & protocol for your site, e.g. http://example.com
-exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md", "sp24"]
 
 # Theme settings
 remote_theme: pmarsceill/just-the-docs@v0.3.3
@@ -30,48 +30,49 @@ permalink: pretty
 footer_content:
 
 # Collections for website data
-# collections:
-  # staffers:
-  # modules:
-  # schedules:
-  # lectures:
-  # announcements:
+collections:
+  staffers:
+  modules:
+    output: true
+  schedules:
+  lectures:
+  announcements:
 # Default layouts for each collection type
-# defaults:
-#   - scope:
-#       path: ''
-#       type: staffers
-#     values:
-#       layout: staffer
-#       subpath: '/assets/images/'
-#   - scope:
-#       path: ''
-#       type: modules
-#     values:
-#       layout: module
-#   - scope:
-#       path: ''
-#       type: schedules
-#     values:
-#       layout: schedule
-#   - scope:
-#       path: ''
-#       type: announcements
-#     values:
-#       layout: announcement
-#   - scope:
-#       path: ''
-#       type: lec
-#     values:
-#       layout: lec
+defaults:
+  - scope:
+      path: '/sp23'
+      type: staffers
+    values:
+      layout: staffer
+      subpath: '/sp23/assets/images/'
+  - scope:
+      path: '/sp23'
+      type: modules
+    values:
+      layout: module
+  - scope:
+      path: '/sp23'
+      type: schedules
+    values:
+      layout: schedule
+  - scope:
+      path: '/sp23'
+      type: announcements
+    values:
+      layout: announcement
+  - scope:
+      path: '/sp23'
+      type: lec
+    values:
+      layout: lec
 
-# compress_html:
-#   clippings: all
-#   comments: all
-#   endings: all
-#   startings: []
-#   blanklines: false
-#   profile: false
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
 
 plugins:
   - jekyll-seo-tag
