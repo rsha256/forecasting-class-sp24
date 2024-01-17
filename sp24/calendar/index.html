@@ -23,7 +23,20 @@
     <meta property="twitter:title" content="Calendar" />
     <script
         type="application/ld+json"> {"url":"http://forecastingclass.com/sp24/calendar/index.html","headline":"Calendar","author":{"@type":"Person","name":"Jean-Stanislas Denain"},"description":"Listing of course modules and topics.","@type":"WebPage","@context":"https://schema.org"}</script>
-
+        <style>
+            .banner {
+                background-color: red;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 100;
+            }
+        </style>
+        </head>
 <body> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="svg-link" viewBox="0 0 24 24">
             <title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -70,7 +83,8 @@
         <div class="site-header"> <a href="http://forecastingclass.com/" class="site-title lh-tight"> Stat 165/265 </a>
             <a href="#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon">
                     <use xlink:href="#svg-menu"></use>
-                </svg> </a></div>
+                </svg> </a>
+        </div>
         <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
             <ul class="nav-list">
                 <li class="nav-list-item"><a href="../index.html" class="nav-list-link">About</a>
@@ -98,6 +112,10 @@
                             viewBox="0 0 16 16" aria-hidden="true">
                             <use xlink:href="#svg-link"></use>
                         </svg></a> Calendar</h1>
+                
+                <div class="banner">
+                    The calendar is currently under construction, and is subject to change until this warning has been removed.
+                </div>
                 <h2 class="fs-4" id="week-1"> <a href="#week-1" class="anchor-heading" aria-labelledby="week-1"><svg
                             viewBox="0 0 16 16" aria-hidden="true">
                             <use xlink:href="#svg-link"></use>
