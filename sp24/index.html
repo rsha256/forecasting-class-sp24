@@ -23,21 +23,21 @@
     <meta property="twitter:title" content="About" />
     <script
         type="application/ld+json"> {"url":"http://forecastingclass.com/sp24/index.html","headline":"About","name":"Stat 165/265","author":{"@type":"Person","name":"Jean-Stanislas Denain"},"description":"Course policies and information.","@type":"WebSite","@context":"https://schema.org"}</script>
-        <style>
-            .banner {
-                background-color: red;
-                color: white;
-                text-align: center;
-                padding: 20px;
-                position: fixed;
-                width: 100%;
-                top: 0;
-                left: 0;
-                z-index: 100;
-            }
-        </style>
-    </head>
-    
+    <style>
+        .banner {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+
 <body> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="svg-link" viewBox="0 0 24 24">
             <title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -107,9 +107,9 @@
                 <div id="search-results" class="search-results"></div>
             </div>
         </div>
-        <div class="banner">
+        <!-- <div class="banner">
             The syllabus and schedule will soon be updated for the Spring 2024 semester.
-        </div>
+        </div> -->
         <div id="main-content-wrap" class="main-content-wrap">
             <div id="main-content" class="main-content" role="main">
                 <h1 class="no_toc" id="about"> <a href="#about" class="anchor-heading" aria-labelledby="about"><svg
@@ -123,11 +123,12 @@
                         </svg></a> Table of contents</h2>
                 <ol id="markdown-toc">
                     <li><a href="#about-1" id="markdown-toc-about-1">About</a>
-                    <!-- <li><a href="#edstem" id="markdown-toc-edstem">EdStem</a> -->
+                        <!-- <li><a href="#edstem" id="markdown-toc-edstem">EdStem</a> -->
                     <li><a href="#lecture" id="markdown-toc-lecture">Lecture</a>
                     <li><a href="#discussion" id="markdown-toc-discussion">Discussion</a>
                     <li><a href="#office-hours" id="markdown-toc-office-hours">Office Hours</a>
                     <li><a href="#grading" id="markdown-toc-grading">Grading</a>
+                    <li><a href="#textbook" id="markdown-toc-textbook">Textbook</a>
                     <li><a href="#course-staff" id="markdown-toc-course-staff">Course Staff</a>
                 </ol>
                 <hr />
@@ -138,17 +139,58 @@
                 <p>Forecasting has been used to predict elections, climate change, and the spread of COVID-19. Poor
                     forecasts led to the 2008 financial crisis. In our daily lives, good forecasting ability can help us
                     plan our work, be on time to events, and make informed career decisions. This practically-oriented
-                    class will provide you with tools to make good forecasts, including Fermi estimates, calibration
-                    training, base rates, scope sensitivity, and power laws. We'll discuss several historical instances
-                    of successful and unsuccessful forecasts, and practice making forecasts about our own lives, about
-                    current events, and about scientific progress.</p>
-                <p><strong>Prerequisites</strong>: Stat 134 or a similar probability course (i.e. EECS 126, Stat 140,
-                    IEOR 172).</p>
-                <p>This is the website for the Spring 2024 iteration of the class. Versions of this site from previous iterations of this course can be found below:
+                    class will provide students with tools to make good forecasts, including Fermi estimates,
+                    calibration training, base rates, scope sensitivity, and power laws.
+
+                    We'll discuss several historical instances of successful and unsuccessful forecasts, and practice
+                    making forecasts about our own lives, about current events, and about scientific progress.
+                </p>
+                <p><strong>Prerequisites</strong>: One of Stat 134, Data/Stat C140, EECS 126, Math 106, IND ENG 172, or
+                    equivalent; and familiarity with Python (Pandas); or consent of instructor.<br>
+                    Strongly Recommended: Compsci
+                    61A, Data/Compsci C88C, or equivalent.</p>
+                <p>This is the website for the Spring 2024 iteration of the class. Versions of this site from previous
+                    iterations of this course can be found below:
                     <br>
                     <a href="http://www.forecastingclass.com/sp23/index.html">Spring 2023 (Stat 157/260)</a>
                     <br>
                     <a href="http://www.stat157.com/">Spring 2022 (Stat 157/260) </a>
+                </p>
+                <br />
+                <p>
+                    Stat 165 and Stat 265 will share the same lectures, but the assignments and work will be different.
+                    Weekly homework and forecasting exercises will be assigned in both classes but homework in Stat 265
+                    will assume a greater degree of mathematical maturity.
+                    <br />
+                    <br />
+                    For Stat 165 students, there will be a quiz at the beginning of class on most Fridays, which covers
+                    the reading from that week. It will generally be short (1-2 multiple-choice questions). <b>The two
+                        quizzes where you got the lowest grade will be dropped.</b> Students in Stat 265 will not be
+                    assigned
+                    quizzes. On Fridays, students in both Stat 165 and Stat 265 will have an in-class worksheet due that
+                    is graded for completion.
+                    <br />
+                    <br />
+                    Instead of exams, both classes will require a final project. The final project for Stat 265 students
+                    will be more in-depth and research-focused. Students in Stat 265 will propose a research project to
+                    the staff for approval. The main criterion is that the project should consider some novel facet of
+                    forecasting such that it could in principle be extended to a publishable paper. For instance, some
+                    past projects involved a novel analysis of scoring rules for forecasts, and a user interface study
+                    for forecasting software.
+                    <br />
+                    <br />
+                    All students are given up to 5 total slip days across the semester to turn in homework late. These
+                    are intended to be used for extenuating circumstances, so we recommend students only use them when
+                    necessary. After that, assignments are penalized 20% per day and drop to 0 after 3 days late. For
+                    Friday worksheets, if a student contacts us in advance with a reason for missing discussion, they
+                    can complete the worksheet on their own and turn it in online. For weekly forecasting exercises,
+                    since they concern current events that happen shortly after the assignment is due, we are unable to
+                    accept late submissions. However, students will be given extra credit opportunities to make up for
+                    missed assignments not covered by the policies above.
+                    <br />
+                    <br />
+                    Please email forecasting-class-staff@lists.berkeley.edu if you need any particular accommodations,
+                    even if you have already requested services on your DSP portal.
                 </p>
 
                 <!-- <h2 id="edstem"> <a href="#edstem" class="anchor-heading" aria-labelledby="edstem"><svg
@@ -189,17 +231,43 @@
                             viewBox="0 0 16 16" aria-hidden="true">
                             <use xlink:href="#svg-link"></use>
                         </svg></a> Grading</h2>
-                <p>There will be a quiz at the beginning of class on most Fridays, which covers the reading from that
-                    week. It will generally be short (1-2 multiple-choice questions). The two quizzes where you got the
-                    lowest grade will be dropped.</p>
-                <p>Grades will be based on a combination of:</p>
-                <ul>
-                    <li>Homework
-                    <li>Discussion participation
-                    <li>Forecasting performance
-                    <li>Quizzes
-                    <li>Final project
-                </ul>
+                <table>
+                    <tr>
+                        <th>Stat 165</th>
+                        <th>Stat 265</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Grades will be based on a combination of:
+                            <ul>
+                                <li>Homework (35%)</li>
+                                <li>Discussion participation (15%)</li>
+                                <li>Forecasting performance (20%)</li>
+                                <li>Quizzes (10%)</li>
+                                <li>Final project (20%)</li>
+                            </ul>
+                        </td>
+                        <td>
+                            Grades will be based on a combination of:
+                            <ul>
+                                <li>Homework (40%)</li>
+                                <li>Discussion participation (15%)</li>
+                                <li>Forecasting performance (20%)</li>
+                                <li>Final project (25%)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <h2 id="textbook"> <a href="#textbook" class="anchor-heading" aria-labelledby="textbook"><svg
+                            viewBox="0 0 16 16" aria-hidden="true">
+                            <use xlink:href="#svg-link"></use>
+                        </svg></a> Textbook</h2>
+                <p>
+                    Steinhardt, J. (2023). <a href="https://forecasting.quarto.pub/book/"
+                        target="_blank">Forecasting</a>
+                </p>
+
                 <h2 id="course-staff"> <a href="#course-staff" class="anchor-heading"
                         aria-labelledby="course-staff"><svg viewBox="0 0 16 16" aria-hidden="true">
                             <use xlink:href="#svg-link"></use>
