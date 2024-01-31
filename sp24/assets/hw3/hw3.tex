@@ -12,38 +12,44 @@
 \setlength{\parindent}{0pc}
 \setlength{\parskip}{10pt}
 
-\title{STAT157 HW 3}
-\date{Jan 31, 2023}
+\newcommand{\solution}[1]{{\color{blue} \textit{Solution} : #1}}
+%%%%%%%%%%%%%%%%%% TO REMOVE SOLUTION %%%%%%%%%%%%%%%%%%
+\renewcommand{\solution}[1]{}
+
+
+\title{STAT 165/265 HW 3}
+% \date{Jan 31, 2024}
 
 \begin{document}
 
 \maketitle
 
-\hfill \textbf{Due Tuesday, February 7 at 11:59pm}
-
+\hfill \textbf{Submit to Gradescope by Tuesday, February 6 at 11:59pm}
 \section*{Deliberate Practice: Zeroth and First Order Forecasting}
 
-\emph{Expected completion time: 60 minutes}
+\emph{Expected completion time: 60 minutes} \\
+\emph{Graded on completion \& using the correct relative error formula}
 
 For each of the following time series, estimate the value of the next few points without looking things up, then look at your answers and report your relative errors. Try to be accurate, even if you don't use a zeroth/first order forecast for each question. Just write down your answer and relative error for each question (no need to show work). When you have answered all the questions, write 1-2 paragraphs summarizing which strategies worked well and which strategies worked poorly.
 
 \begin{enumerate}
-	\item Energy usage until January 30, 2023
-	
+	\item United States energy usage
 	
 	\begin{itemize}
-		\item To find the graph, go to \href{https://www.eia.gov/electricity/gridmonitor/expanded-view/electric_overview/US48/US48/ElectricityOverview-2/edit}{this link}, in ``Chart options'' and ``Date Range Type'' select ``Custom'', and in ``Date Range'' enter ``01/01/2023 - 01/31/2023''.
-		\item Predict energy usage on Feb 6 at 11am SF time.
+          \item Find the graph by going to \href{https://www.eia.gov/electricity/gridmonitor/expanded-view/electric_overview/US48/US48/ElectricityOverview-2/edit}{this link}. In ``Chart options'' and ``Date Range Type'' select ``Custom'', in ``Date Range'' enter ``01/01/2024 - 01/21/2024'', and switch the time zone to Pacific.
+          \item Predict what the energy usage was on 01/26/2024 at 4pm Pacific time.
+          \item After you've made your prediction, extend the date range to find the true answer.
 	\end{itemize}
 	
-	\item Number of full-time Facebook employees until 2016
+	\item Number of full-time Facebook/Meta employees until 2016
 	
 	\begin{center}	
 		\includegraphics[width = 375px]{2.png}
 	\end{center}
 
 	\begin{itemize}
-		\item Predict the number of full-time employees in 2018, and 2020.
+		\item Predict the number of full-time employees in 2018 and 2020.
+            \item After you've made your prediction, check your answers at \href{https://www.globaldata.com/data-insights/technology--media-and-telecom/metas-employee-headcount/}{this link}. Report your relative error for each of the years requested.
 	\end{itemize}
 	
 	\item Total adult correctional population until 2010
@@ -55,70 +61,80 @@ For each of the following time series, estimate the value of the next few points
 
 	\begin{itemize}
 		\item Predict the adult correctional population in 2014 and 2018.
+            \item After you've made your prediction, check your answers at \href{https://bjs.ojp.gov/data/key-statistics#total-correction-population}{this link}. Report your relative error for each of the years requested.
 	\end{itemize}
 	
 	\item World GDP until 1950
 	\begin{itemize}
-		\item \href{https://ourworldindata.org/grapher/world-gdp-over-the-last-two-millennia?time=1..1950}{Link} to the graph.
+		\item Find the graph by going to \href{https://ourworldindata.org/grapher/world-gdp-over-the-last-two-millennia?time=1..1950}{this link}.
 		\item Predict World GDP in 1960, 1970, and 1990.
+            \item After you've made your predictions, move the slider at the bottom to reveal the correct answers. Report your relative error for each of the years requested.
 	\end{itemize}
 	
-	\item TSA passenger throughput numbers until Jan 30, 2022
+	\item TSA passenger throughput
 
 	\begin{center}	
-		\includegraphics[width = 375px]{tsa_checkpoint.png}
+		\includegraphics[width = 375px]{tsa_checkpoint2.png}
 	\end{center}
 
 	\begin{itemize}
-		\item This graph uses the January 2022 numbers from \href{https://www.tsa.gov/coronavirus/passenger-throughput}{here}.
-		\item Predict the passenger throughput number for Feb 7.
+		\item This graph shows TSA checkpoint throughput for January 2022.
+		\item Predict the passenger throughput number for Feb 7, 2022.
+            \item Check your answers at \href{https://www.tsa.gov/travel/passenger-volumes/2022}{this link}.
 	\end{itemize}
 	
-	\item Per capita C02 emissions in US until 2010
+	\item Per capita CO2 emissions in the US
 	\begin{itemize}
-		\item \href{https://ourworldindata.org/grapher/co-emissions-per-capita?tab=chart&time=1750..2010&country=~USA}{Link} to the graph.
-		\item Predict the US per capita C02 emissions in 2015, 2025, and 2030.
+            \item Find the graph by going to       \href{https://ourworldindata.org/grapher/co-emissions-per-capita?tab=chart&time=1750..2010&country=~USA}{this link}.
+		\item Predict the US per capita CO2 emissions in 2015, 2025, and 2030.
+            \item Extend the slider to check your answer for 2015. No need to provide relative error for 2025 and 2030 since they are in the future!
 	\end{itemize}
 	
-	\item Military expenditure as a percent of GDP until 2012
+	\item US military expenditure as a percentage of GDP until 2012
 	\begin{itemize}
-		\item \href{https://ourworldindata.org/grapher/military-expenditure-share-gdp-sipri?time=earliest..2012&country=~USA}{Link} to the graph.
-		\item Predict military expenditure as a percent of GDP in 2015, 2018, and 2019.
+             \item Find the graph by going to       \href{https://ourworldindata.org/grapher/military-expenditure-share-gdp?tab=chart&time=earliest..2012&country=~USA}{this link}.
+		\item Predict US military expenditure as a percentage of GDP in 2015, 2018, and 2019.
+            \item After you've made your predictions, move the slider at the bottom to reveal the correct answers. Report your relative error for each of the years requested.
+                
 	\end{itemize}
-
+        
 	\item Worldwide total fertility rate until 1978
 	\begin{itemize}
-		\item \href{https://ourworldindata.org/grapher/children-per-woman-UN?tab=chart&time=1950..1978}{Link} to the graph.
+		\item Find the graph by going to       \href{https://ourworldindata.org/grapher/children-per-woman-un?tab=chart&time=1950..1978}{this link}.
 		\item Predict the worldwide total fertility rate in 1988, 1998, and 2003.
+              \item After you've made your predictions, move the slider at the bottom to reveal the correct answers. Report your relative error for each of the years requested.
 	\end{itemize}
 	
 	\item US Child mortality rate until 1955
 	\begin{itemize}
-		\item \href{https://ourworldindata.org/grapher/child-mortality?time=earliest..1955&country=~USA}{Link} to the graph.
+		\item Find the graph by going to       \href{https://ourworldindata.org/grapher/child-mortality?time=earliest..1955&country=~USA}{this link}.
 		\item Predict the child mortality rate in 1960, 1990, and 2010.
+          \item After you've made your predictions, move the slider at the bottom to reveal the correct answers. Report your relative error for each of the years requested.
 	\end{itemize}
 \end{enumerate}
 
-On Gradescope, for each of the \textbf{9 questions}, submit your estimates, relative errors. Then, include 1-2 paragraphs of reasoning on which strategies worked well and which strategies didn't. Please also submit the time it took to complete this exercise.
+On Gradescope, for each of the \textbf{9 questions}, submit your estimates and relative errors. Then, include 1-2 paragraphs of reasoning on which strategies worked well and which strategies didn't. Please also submit the time it took to complete this exercise.
 
 \section*{Deliberate Practice: Estimation and Calibration}
 
-\emph{Expected completion time: 45 minutes}
+\emph{Expected completion time: 45 minutes} \\
+\emph{Graded on completion}
 
 For each of the following questions, estimate an inclusive $80\%$ confidence interval for the answer without looking things up. For each quantity, we provided one link with a reasonable-seeming answer. We recommend spending around 5-10 minutes on each estimation question. Write down your reasoning for one of the questions. 
 
 \begin{enumerate}
 	\item How many employment-based Green Card applications did US Citizenship and Immigration Services process in 2021? Note that the question is about the number of applications \emph{processed}, not \emph{approved}. \href{https://www.uscis.gov/newsroom/news-releases/uscis-announces-fy-2021-accomplishments}{Link to Answer}
-	\item How many acres of US land were burnt by wildfires in 2020? \href{https://sgp.fas.org/crs/misc/IF10244.pdf}{Link to Answer}
+	\item How many acres of US land were burnt by wildfires in 2022? \href{https://sgp.fas.org/crs/misc/IF10244.pdf}{Link to Answer}
 	\item How many records have the Beatles sold, in terms of worldwide certified (not claimed) sales, as reported by Wikipedia? Records include singles and full-length albums. \href{https://en.wikipedia.org/wiki/List_of_best-selling_music_artists#250_million_or_more_records}{Link to Answer}
-	\item How many metric tons of crude oil were produced worldwide in 2020? \href{https://www.statista.com/statistics/265229/global-oil-production-in-million-metric-tons/#:~:text=In$\%$202020$\%$2C$\%$20global$\%$20crude$\%$20oil,about$\%$204.2$\%$20billion$\%$20metric$\%$20tons}{Link to Answer}
+	\item How many metric tons of crude oil were produced in North America in 2022? \\ \href{https://yearbook.enerdata.net/crude-oil/world-production-statistics.html}{Link to Answer (scroll to bottom)}
 \end{enumerate}
 
 On Gradescope, submit your estimate for each of the \textbf{4 questions}, with your reasoning for one of the questions. Please also submit the time it took to complete this exercise.
 
 \section*{Deliberate Practice: Reference Classes}
 
-\emph{Expected completion time: 60 minutes}
+\emph{Expected completion time: 60 minutes} \\
+\emph{Graded on completion}
 
 For the following questions, describe 3 reference classes you would use to answer it. To do this, you can look up information about the reference classes, but not the answer itself. For at least 1 and at most 2 of the 4 questions below, use a large language model (such as ChatGPT) to help you brainstorm ideas for reference classes. You can find links to different large language models below: 
 \begin{itemize}
@@ -139,24 +155,126 @@ Once you have come up with reference classes for all of the questions, look up t
 
 On Gradescope, submit your reference classes for each of the \textbf{4 questions}. Then, also include 1-2 paragraphs total of discussion on which kinds of reference classes worked and which didn't. Please also submit the time it took to complete this exercise.
 
-\section*{Predictions}
+\section*{Predictions} 
 
-\emph{Expected completion time: 60 minutes}
+\emph{Expected completion time: 60 minutes} \\
+\emph{Graded on accuracy as part of the class forecasting competition}
 
-Register the following predictions. You can submit them by going to \url{https://docs.google.com/forms/d/1Gja6hcs9jyDEE1sg1Z11eNskyIDaCpiW7wO9BouB4DM/edit} and following the form's instructions. For these predictions, (and all predictions about the future throughout this class), we encourage you to use external sources -- by googling things, reading news articles, talking to friends who follow politics or music stats, etc.
+Make and submit predictions to the questions on this Google Form: \\ \url{https://forms.gle/vGDhi2Gy4TDqh98i6}.
+
+Be sure to follow the format
+described at the top of the form.
+For each question, you will submit a mean and inclusive 80\% confidence interval (or a probability
+for question 3) as well as an explanation of your reasoning (1-2 paragraphs).
+For questions 1-3, your prediction (but not the explanation) will appear on the public leaderboard.
+Question 0 will remain private and not count towards the leaderboard.
+
+\textbf{Submit your reasoning for each question to Gradescope.}
+
+
+\newpage
+\section*{[STAT 265 only] Succession Events}
+\emph{Expected completion time: 90 minutes} \\
+\emph{Graded on accuracy}
+
+This question is optional for STAT 165 students. You should tag pages for this question if and only if you are enrolled in STAT 265.
+
+Suppose we are forecasting whether a particular event $A$ will occur within the next 12 months. Each month, the event occurs with probability $p$ (does not occur with probability $1-p$).
+
+Let $x_i$ denote whether event $A$ happened in month $i$. We have that $x_i \sim \text{Bernoulli}(p)$, where $p$ is a random variable. After each month, we update our belief about $p$ based on the information from the previous month(s).
+
+Recall the density of the Beta distribution:
+$$
+f(x; \alpha, \beta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta-1}
+$$ where $\Gamma(\cdot)$ denotes the \href{https://en.wikipedia.org/wiki/Gamma_function}{Gamma function}. Recall that $\Gamma(n) = (n-1)!$ for integer $n>0$.
+
 
 \begin{enumerate}
-	\item[0.] Pick the same website, application, or software you chose last week, and predict how much time you will spend on it between 12:00am Tuesday February 7th and 11:59pm Sunday February 12th., as measured by your time-tracking app.
+    \item Suppose that \textit{a priori}, we have no information as to whether event $A$ is likely, so we take a $p \sim \text{Uniform}(0, 1)$ prior.
+    \begin{enumerate}
+    
+    \item Suppose we observe that event $A$ does not occur in any of the first $r$ months. We now update our belief about $p$. Show that the posterior $p \mid x_1=0, x_2 = 0, ..., x_r = 0 \sim \text{Beta}(1, r+1)$.
+    
+    \item Show that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{r}{r+1}$
 
-	\item[1.] Will \href{https://en.wikipedia.org/wiki/You_(TV_series)}{\emph{You}} be among the Top 5 Netflix Shows for the week of February 6 - February 12, according to the \href{https://top10.netflix.com/tv}{Top Ten Netflix TV Shows ranking} (English category)?
-	
-	\item[2.] How many three-pointers will Steph Curry \emph{attempt} in the February 11th NBA game between the Golden State Warriors and the Los Angeles Lakers?
- 
-	\item[3.] In the January 2023 \href{https://fiscal.treasury.gov/reports-statements/mts/}{Monthly Treasury Statement}, what will be the total value of gross outlays going to the Department of Defense - Military Programs?
+    \item Use what you found above to find the probability that the event does not happen in the next $k$ months (i.e. find $\mathbb{P}(x_1 = 0, ..., x_k = 0)$).
+    (Hint: $x_i$ and $x_j$ are \textit{dependent}) 
+    \end{enumerate}
+    
+    
+    
+    \solution{
+    \begin{enumerate}
+        \item $p \mid x_1 = 0, ..., x_r = 0 \propto \mathbb{P}(x_1 = 0, ..., x_r = 0 \mid p)f_p(p) \\
+        \propto (1-p)^r \mathbf{1}_{p \in [0, 1]} \\
+        \implies p \mid x_1 = 0, ..., x_r = 0 \sim \text{Beta}(1, r + 1)$
+        \item
+        \begin{align*}
+            \mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) &= \int_0^1 \mathbb{P}(x_r = 0, p \in dp \mid x_1=0, ..., x_{r-1} = 0) \\ &*\mathbb{P}(p \in dp \mid x_1 = 0, ..., x_{r-1} = 0)\\
+            &= \int_0^1 \mathbb{P}(x_r = 0 \mid p, x_1=0, ..., x_{r-1} = 0)f_{p \mid x_1=0, ..., x_{r-1}=0}(p) dp
+            \end{align*}
+            We use the fact that $p \mid x_1=0, ..., x_{r-1}=0 \sim \text{Beta}(1, (r-1)+1)$, which was shown above. Continuing, we have
+            \begin{align*}\\
+            &= \int_0^1 (1-p) \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)}p^{1-1}(1-p)^{r-1}dp \\
+             \\
+             &= \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)} \int_0^1 (1-p)^{r}dp \\
+             &= \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)} \cdot \frac{\Gamma(1)\Gamma(r+1)}{\Gamma(r+2)} \\
+             &= \frac{r!}{(r-1)!} \cdot \frac{r!}{(r+1)!} \\
+            &= \boxed{\frac{r}{r+1}}
+        \end{align*}
+        
+        
+        \item
+        $$\mathbb{P}(x_1 = 0, ..., x_k = 0) = \mathbb{P}(x_1 = 0) \cdot \mathbb{P}(x_2 =0 \mid x_1=0) \cdot ... \cdot \mathbb{P}(x_k = 0 \mid x_1=0, ..., x_{k-1} = 0)$$
+        Using the fact that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{r}{r+1}$, which was shown above, we get:
+        $$\frac{1}{2} \cdot \frac{2}{3} \cdot ... \cdot \frac{k}{k+1} = \boxed{\frac{1}{k+1}}$$
+    \end{enumerate}
+    }
+    
+    
+    \item Suppose instead that \textit{a priori} we \textit{do} have some information about how likely event $A$ is to occur each month, which we encode into our prior $p \sim \text{Beta}(\alpha, \beta)$.
+
+    \begin{enumerate}
+    
+    \item Suppose we observe that event $A$ does not occur in any of the first $r$ months. We now update our belief about $p$. Show that the posterior $p \mid x_1=0, x_2 = 0, ..., x_r = 0 \sim \text{Beta}(\alpha, r + \beta)$.
+    
+    \item Find $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0)$ in terms of $r, \alpha, \beta$.
+
+    \item Set $\alpha = 1, \beta = 2$, and use what you found above to find the probability that the event does not happen in the next 12 months (i.e. find $\mathbb{P}(x_1 = 0, ..., x_k = 0)$).
+    (Hint: $x_i$ and $x_j$ are \textit{dependent}) 
+    \end{enumerate}
+
+    \solution{
+    \begin{enumerate}
+        \item $p \mid x_1 = 0, ..., x_r = 0 \propto \mathbb{P}(x_1 = 0, ..., x_r = 0 \mid p)f_p(p) \\
+        \propto (1-p)^r p^{\alpha-1}(1-p)^{\beta-1}\mathbf{1}_{p \in [0, 1]} \\
+        \propto p^{\alpha-1}(1-p)^{r+\beta-1}\mathbf{1}_{p \in [0, 1]} \\
+        \implies p \mid x_1 = 0, ..., x_r = 0 \sim \text{Beta}(\alpha, r + \beta)$
+        \item
+        \begin{align*}
+            \mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) &= \int_0^1 \mathbb{P}(x_r = 0, p \in dp \mid x_1=0, ..., x_{r-1} = 0) \\ &*\mathbb{P}(p \in dp \mid x_1 = 0, ..., x_{r-1} = 0)\\
+            &= \int_0^1 \mathbb{P}(x_r = 0 \mid p, x_1=0, ..., x_{r-1} = 0)f_{p \mid x_1=0, ..., x_{r-1}=0}(p) dp
+            \end{align*}
+            We use the fact that $p \mid x_1=0, ..., x_{r-1}=0 \sim \text{Beta}(\alpha, (r-1) + \beta)$, which was shown above. Continuing, we have
+            \begin{align*}\\
+            &= \int_0^1 (1-p) \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)}p^{\alpha-1}(1-p)^{\beta + r - 2}dp \\
+             \\
+             &= \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)} \int_0^1 p^{\alpha - 1}(1-p)^{\beta + r - 1}dp \\
+             &= \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)} \cdot \frac{\Gamma(\alpha)\Gamma(\beta + r)}{\Gamma(\alpha + \beta + r)} \\
+             &= \frac{(\alpha + \beta + r-2)!}{(\beta + r-2)!} \cdot \frac{(\beta + r-1)!}{(\alpha + \beta + r-1)!} \\
+             &= \boxed{\frac{\beta+r-1}{\alpha + \beta + r-1}} \\
+        \end{align*}
+        
+        
+        \item We will first solve this for any $\alpha, \beta$, then plug in $\alpha=1, \beta=2$.
+        $$\mathbb{P}(x_1 = 0, ..., x_k = 0) = \mathbb{P}(x_1 = 0) \cdot \mathbb{P}(x_2 =0 \mid x_1=0) \cdot ... \cdot \mathbb{P}(x_k = 0 \mid x_1=0, ..., x_{k-1} = 0)$$
+        Using the fact that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{\beta+r-1}{\alpha + \beta + r-1}$, which was shown above, we get:
+        $$\prod\limits_{r=1}^{12} \frac{\beta + r - 1}{\alpha + \beta + r - 1}$$
+        $$ = \frac{2}{3} \cdot \frac{3}{4} \cdot ... \cdot \frac{13}{14} = \frac{2}{14} = \boxed{\frac{1}{7}}$$
+    \end{enumerate}
+    }
 	
 \end{enumerate}
-
-For each question, submit an inclusive 80\% confidence interval (or a probability for question 1), as well as an explanation of your reasoning (~1-2 paragraphs). \textbf{Please include a copy of your google form responses with your Gradescope submission.} On Gradescope, please also submit the time it took to complete this exercise.
 
 
 \end{document}
