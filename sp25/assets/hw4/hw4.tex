@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=cyan
+	}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0pc}
+\setlength{\parskip}{10pt}
+\newcommand{\solution}[1]{{\color{blue} \\\textit{Solution} : #1}}
+%%%%%%%%%%%%%%%%%% TO REMOVE SOLUTION %%%%%%%%%%%%%%%%%%
+% \renewcommand{\solution}[1]{}
+\title{STAT 165/265 HW 4}
+\date{Feb 7, 2024}
+
+\begin{document}
+
+\maketitle
+
+\hfill \textbf{Due Tuesday, February 13 at 11:59pm}
+
+\section*{Deliberate Practice}
+
+\subsection*{Part a: Forecasting Videos}
+
+\emph{Expected completion time: 40 minutes}
+
+Watch the seven short video clips \href{http://www.forecastingclass.com/assets/initial_clips.zip}{here}. For each of them, spend a couple minutes brainstorming as many different 
+possible continuations of the video as you can think of that are qualitatively distinct. After watching each video (and before watching the next one), look at the 
+full version of the corresponding videos \href{http://www.forecastingclass.com/assets/full_videos.zip}{here}. Was the actual outcome covered by your list?
+
+The idea is to practice the MECE Principle and exhaust the space of possible outcomes. You will probably find that on some of the initial videos, the actual outcome wasn't on your list. 
+Your goal is to have the actual outcome be consistently on your list by the end.
+
+As a benchmark, when the instructors did this, they ended up writing around 7 possibilities on average per video (but it's fine if you end up writing more or fewer).
+
+% as much as possible; ideally the outcomes you list cover at least $80$-$90\%$ of the total outcome probability mass.
+
+\subsection*{Part b: Generating Considerations}
+
+\emph{Expected completion time: 40 minutes}
+
+Now we'll apply a similar brainstorming skill to predictions. 
+For each of the following three predictions from your homeworks, brainstorm 5 considerations for each that could have substantially affected the final outcome of the forecast.
+
+For example, recall the question ``How many people will be in the classroom at 4:15pm on Wednesday, January 24th?'' from Homework 1. In this case, a consideration that could have affected the outcome is that ``some students could deliberately try to decrease the number of people in the room at that time by staying outside of the room, to have a more accurate prediction than other students''. Or consider the question ``Will President Biden resign during his first term?'' A potentially important consideration that could substantially affect the outcome is if President Biden resigns due to poor health. Try to generate 5 considerations like these for each of the following:
+
+\begin{enumerate}
+	\item[1.] (Homework 1, Q2) How many dollars will the movie ``Mean Girls'' (the 2024 release) gross in the US on the weekend of Jan 26-28?
+
+	\item[2.] (Homework 2, Q1) What will the \href{https://recwell.berkeley.edu/rsf-weight-room-crowd-meter/}{RSF Weight Room Crowd Meter} read next to ``\% Full'' on Monday, February 5 at 8:30am Pacific Time?
+
+	\item[3.] (Homework 4, Q1) What percent of the vote will Vladimir Putin receive in the 2024 Russian Presidential Election?
+
+
+
+\end{enumerate}
+
+Afterwards, put a ``Y'' next to each consideration that seems plausibly important to you (greater than 2\% chance of occurring and affecting the answer), 
+and ``N'' next to each consideration that does not seem plausibly important.
+
+On Gradescope, please submit the time it took to complete this exercise.
+
+\section*{Lab}
+
+\emph{Expected completion time: 120 minutes}
+
+\href{https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Frsha256%2Fforecasting-class-sp24&branch=main&urlpath=tree%2Fforecasting-class-sp24%2Fhw%2Fhw4%2Fhw4lab.ipynb}{Link to Jupyter notebook.}
+
+Please follow the instructions in the notebook to print out your code and answers and submit to Gradescope. You may use languages other than Python, although we will generally be providing starter code in Python. Please double-check that the pdf you generated contains all of your work, including any relevant plots.
+
+On Gradescope, please also submit the time it took to complete this exercise.
+
+\section*{Predictions} 
+
+\emph{Expected completion time: 60 minutes} \\
+\emph{Graded on accuracy as part of the class forecasting competition}
+
+Make and submit predictions to the questions on this Google Form: \\ \url{https://forms.gle/emm3ANk93s2fxkNv7}.
+
+Be sure to follow the format
+described at the top of the form.
+For each question, you will submit a mean and inclusive 80\% confidence interval (or a probability
+for question 3) as well as an explanation of your reasoning (1-2 paragraphs).
+For questions 1-3, your prediction (but not the explanation) will appear on the public leaderboard.
+
+\textbf{Submit your reasoning for each question to Gradescope.}
+
+
+\newpage
+\section*{[STAT 265 only] Combining Forecasts: Who to Trust?}
+In this question we will explore a quantitative way to determine the point at which to consider vs. neglect certain experts among a group of experts.
+
+Consider a competition involving \(k\) participants, where the performance of each participant is modeled as a uniform distribution. The means of these distributions (\(\mu_j\), for participant \(j\)) decay at a constant rate, $d$, as \(j\) increases, illustrating a decrease in expected performance from the top participant to the least. Every participant's performance is characterized by the same standard deviation, \(\sigma\).
+
+For a given participant \(j\), assume that their performance is uniformly distributed within the range \([\mu_j - \sigma, \mu_j + \sigma]\). This assumption simplifies the analysis of their competitiveness and chances of ``winning."
+
+Any participant whose mean performance is more than \(2\sigma\) away from the mean performance of the top participant has no chance of being considered competitive. (i.e. participant $j$ has no chance of winning if \(\mu_1 - \mu_j > 2\sigma\))
+
+\begin{enumerate}
+    \item Assume the means are evenly spaced from \(\mu_k\) (lowest) to \(\mu_1\) (highest) with a distance of $d$ between them. Express the mean of the $j$th participant in terms of the mean of top participant $\mu_1$, $j$, and the spacing $d$.
+    
+    \item Determine the condition under which a participant's mean is within \(\sigma\) of the top performer's mean.
+    % , i.e., \(\mu_1 - \mu_j \leq \sigma\). 
+    Your answer should be independent of $\mu_1$.
+    % \textbf{Hint:} Substitute your answer from the previous part.
+  
+    \item Using $d$ and the above condition, calculate the maximum value of \(j\) for which the condition is satisfied. This \(j\) represents the number of participants whose performance is considered competitive. You may assume $d$ is positive.
+
+    \textbf{Hint:} Consider how the constant spacing $d$ and the given constraints (\(\mu_j - \mu_1 > 2\sigma\) for non-competitiveness and performance within \(\sigma\)) interact to limit the pool of competitive participants.
+   
+\end{enumerate}
+
+\end{document}
