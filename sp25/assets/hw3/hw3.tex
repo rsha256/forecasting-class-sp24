@@ -14,7 +14,7 @@
 
 \newcommand{\solution}[1]{{\color{blue} \textit{Solution} : #1}}
 %%%%%%%%%%%%%%%%%% TO REMOVE SOLUTION %%%%%%%%%%%%%%%%%%
-\renewcommand{\solution}[1]{}
+% \renewcommand{\solution}[1]{}
 
 
 \title{STAT 165/265 HW 3}
@@ -24,7 +24,7 @@
 
 \maketitle
 
-\hfill \textbf{Submit to Gradescope by Tuesday, February 6 at 11:59pm}
+\hfill \textbf{Submit to Gradescope by Tuesday, February 11 at 11:59pm}
 \section*{Deliberate Practice: Zeroth and First Order Forecasting}
 
 \emph{Expected completion time: 60 minutes} \\
@@ -36,8 +36,8 @@ For each of the following time series, estimate the value of the next few points
 	\item United States energy usage
 	
 	\begin{itemize}
-          \item Find the graph by going to \href{https://www.eia.gov/electricity/gridmonitor/expanded-view/electric_overview/US48/US48/ElectricityOverview-2/edit}{this link}. In ``Chart options'' and ``Date Range Type'' select ``Custom'', in ``Date Range'' enter ``01/01/2024 - 01/21/2024'', and switch the time zone to Pacific.
-          \item Predict what the energy usage was on 01/26/2024 at 4pm Pacific time.
+          \item Find the graph by going to \href{https://www.eia.gov/electricity/gridmonitor/expanded-view/electric_overview/US48/US48/ElectricityOverview-2/edit}{this link}. In ``Chart options'' and ``Date Range Type'' select ``Custom'', in ``Date Range'' enter ``01/01/2025 - 01/21/2025'', and switch the time zone to Pacific.
+          \item Predict what the energy usage was on 01/26/2025 at 4pm Pacific time.
           \item After you've made your prediction, extend the date range to find the true answer.
 	\end{itemize}
 	
@@ -118,7 +118,7 @@ On Gradescope, for each of the \textbf{9 questions}, submit your estimates and r
 \section*{Deliberate Practice: Estimation and Calibration}
 
 \emph{Expected completion time: 45 minutes} \\
-\emph{Graded on completion}
+\emph{Graded on  completion}
 
 For each of the following questions, estimate an inclusive $80\%$ confidence interval for the answer without looking things up. For each quantity, we provided one link with a reasonable-seeming answer. We recommend spending around 5-10 minutes on each estimation question. Write down your reasoning for one of the questions. 
 
@@ -160,7 +160,7 @@ On Gradescope, submit your reference classes for each of the \textbf{4 questions
 \emph{Expected completion time: 60 minutes} \\
 \emph{Graded on accuracy as part of the class forecasting competition}
 
-Make and submit predictions to the questions on this Google Form: \\ \url{https://forms.gle/vGDhi2Gy4TDqh98i6}.
+Make and submit predictions to the questions on this Google Form: \\ \url{https://forms.gle/uyE1j1TT26BqHcJg6}.
 
 Be sure to follow the format
 described at the top of the form.
@@ -181,7 +181,7 @@ This question is optional for STAT 165 students. You should tag pages for this q
 
 Suppose we are forecasting whether a particular event $A$ will occur within the next 12 months. Each month, the event occurs with probability $p$ (does not occur with probability $1-p$).
 
-Let $x_i$ denote whether event $A$ happened in month $i$. We have that $x_i \sim \text{Bernoulli}(p)$, where $p$ is a random variable. After each month, we update our belief about $p$ based on the information from the previous month(s).
+Let $x_i$ denote whether event $A$ happened in month $i$. We have that $x_i \sim \text{Bernoulli}(p)$, where $p$ is a random variable and the $x_i$ are conditionally independent, given $p$. After each month, we update our belief about $p$ based on the information from the previous month(s).
 
 Recall the density of the Beta distribution:
 $$
@@ -190,6 +190,13 @@ $$ where $\Gamma(\cdot)$ denotes the \href{https://en.wikipedia.org/wiki/Gamma_f
 
 
 \begin{enumerate}
+    % p ~ Uniform(0, 1) prior. Hint: these arent indep events.
+    % P[all 0] = P(X1=0) P(X2=0|X1=0) ... = k/(k+1)
+    
+    % then with alpha=1,beta=1
+    % general: (k+b-1)/(k+a+b-1)
+
+    % Cmp k=0 vs k=0,  k=1 vs k=60 to relate a',b' to a,b
     \item Suppose that \textit{a priori}, we have no information as to whether event $A$ is likely, so we take a $p \sim \text{Uniform}(0, 1)$ prior.
     \begin{enumerate}
     
@@ -198,38 +205,10 @@ $$ where $\Gamma(\cdot)$ denotes the \href{https://en.wikipedia.org/wiki/Gamma_f
     \item Show that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{r}{r+1}$
 
     \item Use what you found above to find the probability that the event does not happen in the next $k$ months (i.e. find $\mathbb{P}(x_1 = 0, ..., x_k = 0)$).
+    % Specifically, you should show that $\mathbb{P}(x_1 = 0, ..., x_k = 0) = \frac{1}{k+1}$. 
     (Hint: $x_i$ and $x_j$ are \textit{dependent}) 
     \end{enumerate}
     
-    
-    
-    \solution{
-    \begin{enumerate}
-        \item $p \mid x_1 = 0, ..., x_r = 0 \propto \mathbb{P}(x_1 = 0, ..., x_r = 0 \mid p)f_p(p) \\
-        \propto (1-p)^r \mathbf{1}_{p \in [0, 1]} \\
-        \implies p \mid x_1 = 0, ..., x_r = 0 \sim \text{Beta}(1, r + 1)$
-        \item
-        \begin{align*}
-            \mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) &= \int_0^1 \mathbb{P}(x_r = 0, p \in dp \mid x_1=0, ..., x_{r-1} = 0) \\ &*\mathbb{P}(p \in dp \mid x_1 = 0, ..., x_{r-1} = 0)\\
-            &= \int_0^1 \mathbb{P}(x_r = 0 \mid p, x_1=0, ..., x_{r-1} = 0)f_{p \mid x_1=0, ..., x_{r-1}=0}(p) dp
-            \end{align*}
-            We use the fact that $p \mid x_1=0, ..., x_{r-1}=0 \sim \text{Beta}(1, (r-1)+1)$, which was shown above. Continuing, we have
-            \begin{align*}\\
-            &= \int_0^1 (1-p) \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)}p^{1-1}(1-p)^{r-1}dp \\
-             \\
-             &= \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)} \int_0^1 (1-p)^{r}dp \\
-             &= \frac{\Gamma(r+1)}{\Gamma(1)\Gamma(r)} \cdot \frac{\Gamma(1)\Gamma(r+1)}{\Gamma(r+2)} \\
-             &= \frac{r!}{(r-1)!} \cdot \frac{r!}{(r+1)!} \\
-            &= \boxed{\frac{r}{r+1}}
-        \end{align*}
-        
-        
-        \item
-        $$\mathbb{P}(x_1 = 0, ..., x_k = 0) = \mathbb{P}(x_1 = 0) \cdot \mathbb{P}(x_2 =0 \mid x_1=0) \cdot ... \cdot \mathbb{P}(x_k = 0 \mid x_1=0, ..., x_{k-1} = 0)$$
-        Using the fact that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{r}{r+1}$, which was shown above, we get:
-        $$\frac{1}{2} \cdot \frac{2}{3} \cdot ... \cdot \frac{k}{k+1} = \boxed{\frac{1}{k+1}}$$
-    \end{enumerate}
-    }
     
     
     \item Suppose instead that \textit{a priori} we \textit{do} have some information about how likely event $A$ is to occur each month, which we encode into our prior $p \sim \text{Beta}(\alpha, \beta)$.
@@ -241,39 +220,10 @@ $$ where $\Gamma(\cdot)$ denotes the \href{https://en.wikipedia.org/wiki/Gamma_f
     \item Find $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0)$ in terms of $r, \alpha, \beta$.
 
     \item Set $\alpha = 1, \beta = 2$, and use what you found above to find the probability that the event does not happen in the next 12 months (i.e. find $\mathbb{P}(x_1 = 0, ..., x_k = 0)$).
+    % Specifically, you should show that $\mathbb{P}(x_1 = 0, ..., x_k = 0) = \frac{r+\beta - 1}{\alpha + r + \beta - 1}$. 
     (Hint: $x_i$ and $x_j$ are \textit{dependent}) 
     \end{enumerate}
 
-    \solution{
-    \begin{enumerate}
-        \item $p \mid x_1 = 0, ..., x_r = 0 \propto \mathbb{P}(x_1 = 0, ..., x_r = 0 \mid p)f_p(p) \\
-        \propto (1-p)^r p^{\alpha-1}(1-p)^{\beta-1}\mathbf{1}_{p \in [0, 1]} \\
-        \propto p^{\alpha-1}(1-p)^{r+\beta-1}\mathbf{1}_{p \in [0, 1]} \\
-        \implies p \mid x_1 = 0, ..., x_r = 0 \sim \text{Beta}(\alpha, r + \beta)$
-        \item
-        \begin{align*}
-            \mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) &= \int_0^1 \mathbb{P}(x_r = 0, p \in dp \mid x_1=0, ..., x_{r-1} = 0) \\ &*\mathbb{P}(p \in dp \mid x_1 = 0, ..., x_{r-1} = 0)\\
-            &= \int_0^1 \mathbb{P}(x_r = 0 \mid p, x_1=0, ..., x_{r-1} = 0)f_{p \mid x_1=0, ..., x_{r-1}=0}(p) dp
-            \end{align*}
-            We use the fact that $p \mid x_1=0, ..., x_{r-1}=0 \sim \text{Beta}(\alpha, (r-1) + \beta)$, which was shown above. Continuing, we have
-            \begin{align*}\\
-            &= \int_0^1 (1-p) \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)}p^{\alpha-1}(1-p)^{\beta + r - 2}dp \\
-             \\
-             &= \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)} \int_0^1 p^{\alpha - 1}(1-p)^{\beta + r - 1}dp \\
-             &= \frac{\Gamma(\alpha + \beta + r - 1)}{\Gamma(\alpha)\Gamma(\beta + r - 1)} \cdot \frac{\Gamma(\alpha)\Gamma(\beta + r)}{\Gamma(\alpha + \beta + r)} \\
-             &= \frac{(\alpha + \beta + r-2)!}{(\beta + r-2)!} \cdot \frac{(\beta + r-1)!}{(\alpha + \beta + r-1)!} \\
-             &= \boxed{\frac{\beta+r-1}{\alpha + \beta + r-1}} \\
-        \end{align*}
-        
-        
-        \item We will first solve this for any $\alpha, \beta$, then plug in $\alpha=1, \beta=2$.
-        $$\mathbb{P}(x_1 = 0, ..., x_k = 0) = \mathbb{P}(x_1 = 0) \cdot \mathbb{P}(x_2 =0 \mid x_1=0) \cdot ... \cdot \mathbb{P}(x_k = 0 \mid x_1=0, ..., x_{k-1} = 0)$$
-        Using the fact that $\mathbb{P}(x_r = 0 \mid x_1=0, ..., x_{r-1} = 0) = \frac{\beta+r-1}{\alpha + \beta + r-1}$, which was shown above, we get:
-        $$\prod\limits_{r=1}^{12} \frac{\beta + r - 1}{\alpha + \beta + r - 1}$$
-        $$ = \frac{2}{3} \cdot \frac{3}{4} \cdot ... \cdot \frac{13}{14} = \frac{2}{14} = \boxed{\frac{1}{7}}$$
-    \end{enumerate}
-    }
-	
 \end{enumerate}
 
 
