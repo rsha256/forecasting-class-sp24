@@ -12,25 +12,30 @@
 \setlength{\parindent}{0pc}
 \setlength{\parskip}{10pt}
 
-\title{STAT157 HW 5}
-\date{Feb 15, 2023}
+\title{STAT 165/265 HW 5}
+\date{Feb 14, 2025}
+
+\newcommand{\solution}[1]{{\color{blue} \\\textit{Solution} : #1}}
+%%%%%%%%%%%%%%%%%% TO REMOVE SOLUTION %%%%%%%%%%%%%%%%%%
+% \renewcommand{\solution}[1]{}
 
 \begin{document}
 
 \maketitle
 
-\hfill \textbf{Due Wednesday, February 22 at 11:59pm}
+\hfill \textbf{Due Thursday, February 27 at 11:59pm}
 
 \section*{Deliberate Practice: Combining Forecasts}
 
-\emph{Expected completion time: 90 minutes}
+\emph{Expected completion time: 90 minutes} \\
+\emph{Graded on completion}
 
 
 For the following questions, look up and provide links to at least 3 data sources that could be good reference classes. 
 
 \begin{enumerate}
     \item Will this year's NBA MVP be a guard?
-	\item Will Biden file for president before the end of 2023?
+    \item Will OpenAI announce GPT-5 before the end of 2025?
 \end{enumerate}
 
 For each reference class, comment on: 
@@ -48,40 +53,56 @@ On Gradescope, please also submit the time it took to complete this exercise.
 
 \section*{Lab}
 
-\emph{Expected completion time: 120 minutes}
+\emph{Expected completion time: 120 minutes} \\
+\emph{Graded on accuracy}
 
-\href{http://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fjs-d%2Fforecasting-class-sp23&urlpath=tree%2Fforecasting-class-sp23%2Fhw%2Fhw5%2Fhw5lab.ipynb&branch=main}{Link to Jupyter notebook.}
+
+\href{https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Frsha256%2Fforecasting-class-sp24&branch=main&urlpath=tree%2Fforecasting-class-sp24%2Fhw%2Fhw5%2Fhw5lab.ipynb}{Link to Jupyter notebook.}
 
 Please follow the instructions in the notebook to print out your code and answers and submit to Gradescope. You may use languages other than Python, although we will generally be providing starter code in Python.
 
 On Gradescope, please also submit the time it took to complete this exercise.
 
-\section*{Predictions}
+\section*{Predictions} 
 
-\emph{Expected completion time: 40 minutes}
+\emph{Expected completion time: 60 minutes} \\
+\emph{Graded on accuracy as part of the class forecasting competition}
 
-Register the following predictions. You can submit them by going to \url{https://forms.gle/ExjYPGKVDeiCB3DJ7} and following the form's instructions. For these predictions, (and all predictions about the future throughout this class), we encourage you to use external sources -- by googling things, reading news articles, talking to friends who follow politics or music stats, etc.
+Make and submit predictions to the questions on this Google Form: \\ \url{https://forms.gle/RY54QrzQjWrov6oX9}.
+
+Be sure to follow the format
+described at the top of the form.
+For each question, you will submit a mean and inclusive 80\% confidence interval or a probability (whichever the question asks for). We provide cells on the Google form for you to type out your reasoning (1-2 paragraphs), which you should submit to Gradescope with the rest of this assignment.
+For questions 1-3, your prediction (but not the explanation) will appear on the public leaderboard.
+
+\textbf{Remember to submit your reasoning for each question to Gradescope.}
+
+\newpage
+\section*{[STAT 265 only] Combining Forecasts}
+\emph{Expected completion time: 90 minutes} \\
+\emph{Graded on accuracy} \\
+Recommended reading: \href{https://forecasting.quarto.pub/book/combining-forecasts-part2.html#weighting-experts}{Chapter 10.1 of Prof. Steinhardt's \textit{Forecasting}}
+
+We will borrow the setup and notation from the textbook chapter linked above. Suppose we want to forecast a binary event whose true probability of occurring is $\mu$. Consider a set of signals $X_1, X_2, ..., X_n$ related to a binary event, where each signal $X_i$ is a probability estimate for the event's occurrence. Suppose we have that the signals are unbiased ($\mathbb{E}\left [ X_i \right] = \mu$) and each has some variance $\text{Var}[X_i] = \sigma_i^2$.
+
+Define the expected Brier score as $\text{EBS}(X) = \mathbb{E}[(X - \mu)^2 + \mu(1-\mu)]$.
 
 \begin{enumerate}
-	\item[1.] Will Google release its AI chatbot \href{https://blog.google/technology/ai/bard-google-ai-search-updates/}{Bard} before the End of Day March 7?
-	\begin{itemize}
-		\item This question will resolve positively if Google's \href{https://blog.google/technology/ai/}{official AI blog} contains a post between February 23 and March 7 (included) announcing the public release (free or paid) of Bard. 
-        \item A public release means that all course staff would be able to use Bard if they signed up or paid appropriately, but if there is a waitlist or invitation-only process for using it, it doesn't count as a public release. 
-        \item This question will be nullified if Bard is released before the homework is due.
-	\end{itemize} 
-	\item[2.] Who will win the \href{https://www.bbc.com/news/world-africa-64496042}{2023 Nigerian Presidential Election}?
-	\begin{itemize}
-		\item This question will resolve based on a government announcement or credible media reports of who is Nigeria's next president. If there is a run-off because a candidate fails to get a majority or quorum of states, the question will resolve based on the final winner of the election. 
-        \item Please submit probabilities for each of the most promising candidate: Atiku Abubakar, Bola Tinubu, Peter Obi, Rabiu Kwankwaso, and for ``someone else''. Your probabilities should add up to 1. If they don't, we will divide each probability by the sum of the probabilities to renormalize them.
-    \end{itemize}
+    \item Show $\mu (X-1)^2 + (1-\mu) X^2 = (X-\mu)^2 + \mu(1-\mu)$.
+    
 
-	\item[3.] How many awards will \emph{Everything Everywhere All at Once} win at the 95th Academy Awards?
-	\begin{itemize}
-		\item This movie has received \href{https://www.imdb.com/title/tt6710474/awards/}{11 nominations} for Oscars 2023.  
-	\end{itemize} 
-\end{enumerate}
+    \item Find the average of the expected Brier scores of each of the signals.
+    
+    % \item Discuss how the correlation (positive, negative, or zero) among forecasts influences the effectiveness of this approach. Specifically, analyze how the variance and covariance among forecasts contribute to the Brier score of the combined forecast and compare it to the average Brier score of individual forecasts, incorporating the slack term.
+    \item Suppose instead of taking any particular signal as our forecast, we take the average of the signals as our forecast. Formally, our forecast is $X = \frac{1}{n}\sum\limits_{i=1}^{n}X_i$. Find the expected Brier score of this forecast, in terms of $n, \sigma_i$, and covariance terms between the signals.
+    
+    \item When is the expected Brier score of the average of the signals better than the average expected Brier score of the signals? Give a concrete example of when the score resulting from averaging the signals performs better than the average of the scores of the signals. Note that under the definition used in this problem, ``better'' Brier scores are ones that are lower (see \href{https://forecasting.quarto.pub/book/scoring-rules.html#strictly-proper-scoring-rules}{chapter 3.1} for details on this).\\
+    \textbf{Hint: } Consider the covariance between the signals. \\
+    
+    \end{enumerate}
+On Gradescope, please also submit the time it took to complete this exercise.
 
-For each question, submit your probabilities (or a mean and inclusive 80\% confidence interval for question 3) as well as an explanation of your reasoning (1-2 paragraphs). \textbf{Please include a copy of your google form responses with your Gradescope submission}. 
+
 
 % \section*{Extra-credit: Predictions}
 % \begin{enumerate}
@@ -95,6 +116,16 @@ For each question, submit your probabilities (or a mean and inclusive 80\% confi
 % 	\item Fermi estimate questions, such as in \emph{HW2 Deliberate Practice: Estimation} (2 points).
 % 	\item Forecasting questions like the weekly prediction questions in past homeworks (3 points).
 % \end{itemize}
+
+% \newpage
+% \section*{[STAT 265 only] Combining Forecasts}
+
+    
+
+% \begin{enumerate}
+%     \item 
+%     \solution{}
+% \end{enumerate}
 
 
 \end{document}
